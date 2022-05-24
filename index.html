@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录/注册</title>
+		<link rel="stylesheet" type="text/css" href="bin/bootstrap/css/bootstrap.min.css"/>
+		<script src="bin/jpquery/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body{
+				background-image: url(img/img/蜘蛛侠壁纸.png);
+				
+				background-size: 100%;
+			}
+			.d1{
+				width: 70%;
+				
+			}
+			.d2{
+				width: 100%;
+				/* background-color: #86CFDA; */
+			}
+			th,span{
+				text-align: center;
+				font-size: 20px;
+				color: white;
+			}
+			label{
+				width: 70px;
+				display: inline-block; 
+				color: white;
+			}
+			h3{
+				color: white;
+			}
+			.zhu{
+				position: fixed;
+				top: -250px;
+				left: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class=" border-dark rounded container">
+			<div class="row">
+				
+				<div class="d2 col-8 p-3  border-dark">
+					<table id="tab">
+						<tr><th><img src="./img/img/登录.png" width="100px" ></th></tr>
+						<tr><th><span>登录</span></th></tr>
+					</table>
+					<div class="container">
+					  
+					  <br>
+					  <!-- Nav pills -->
+					  <ul class="nav nav-pills" role="tablist">
+					    <li class="nav-item">
+					      <a id="deng" class="nav-link active" data-toggle="pill" href="#home">登录</a>
+					    </li>
+					    <li class="nav-item">
+					      <a id="zhu" class="nav-link" data-toggle="pill" href="#menu1">注册</a>
+					    </li>
+					   
+					  </ul>
+					
+					  <!-- ---------------------------------窗口----------------------------------------- -->
+					  <div class="tab-content">
+						  <!-- -----------------------------登录------------------------------------------- -->
+						  <img src="./img/img/蜘蛛侠001.png" width="200px" class="zhu">
+					    <div id="home" class="container tab-pane active"><br>
+					      <form action="" onsubmit="alert('表单提交')" onreset="console.log('表单重置')">
+					      	
+					      	<h3>登陆界面</h3>
+					      	<!--//用户名	-->
+					      	<label>用户名</label>
+							<input type="text"id="101" value="" onblur="gers()"  onfocus="tess()"/>
+					      	<span id="span11"></span><br>
+					      	
+					      	<!-- //密码 -->
+					      	<label>密码</label>
+							<input type="password"id="102" value="" onblur="mis()"  onfocus="mas()"/>
+					      	<span id="span12"></span><br>
+							
+					      	<input type="button" value="登录" onclick="mms()">
+					      	<input type="reset" value="重置" onclick="qqs()">
+					      </form>
+					    </div>
+						<!-- ------------------------------------注册---------------------------------------------------------- -->
+					    <div id="menu1" class="container tab-pane fade"><br>
+					      <form action="" onsubmit="alert('表单提交')" onreset="console.log('表单重置')">
+					      	
+					      	<h3>注册界面</h3>
+					      	<!--//用户名	-->
+							<label>用户名</label>
+					      	<input type="text"id="001" value="" onblur="ger()"  onfocus="tes()"/>
+					      	<span id="span1"></span><br>
+					      	
+					      	<!-- //密码 -->
+							<label>密码</label>
+					      	<input type="password"id="002" value="" onblur="mi()"  onfocus="ma()"/>
+					      	<span id="span2"></span><br>
+					      	
+							<!-- //确认密码 -->
+							<label>确认密码</label>
+							<input type="password"id="003" value="" onblur="qmi()"  onfocus="qma()"/>
+							<span id="span3"></span><br>
+							
+							
+					      	<input type="button" value="注册" onclick="mm()">
+					      	<input type="reset" value="重置" onclick="qq()">
+					      </form>
+					    </div>
+					    
+					  </div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- ---------------------------------------------------------- -->
+		<script type="text/javascript" src="bin/jpquery/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="bin/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript">
+			var zhu=false;
+			var anniu1=false;
+			var anniu2=false;
+			var anniu3=false;
+				function ger(){
+					var zz=/^[0-9a-zA-Z]{8,15}$/
+					zhe =document.getElementById("001").value
+					if(zz.test(zhe)){
+						zhu=true
+						document.getElementById("span1").innerHTML="<img src='img/输入正确.png' width='15px' >"
+						anniu1=true;
+					}else{
+						zhu=false
+						document.getElementById("span1").innerText="输入不合法"
+						anniu1=false;
+					}
+				}
+				function tes(){
+					document.getElementById("span1").innerHTML=""
+					if(!zhu){
+						document.getElementById("001").value="";
+					}
+				}
+				//----------------------------------------------------------------------
+				var mim=false;
+				function mi(){
+					var zz=/^[0-9a-zA-Z]{8,15}$/
+					var zhe =document.getElementById("002").value
+					if(zz.test(zhe)){
+						mim=true
+						document.getElementById("span2").innerHTML="<img src='img/输入正确.png' width='15px' >"
+						anniu2=true;
+					}else{
+						mim=false
+						document.getElementById("span2").innerText="输入不合法"
+						anniu2=false;
+					}
+				}
+				function ma(){
+					document.getElementById("span2").innerHTML=""
+					if(!mim){
+						document.getElementById("002").value="";
+					}
+				}
+				//----------------------------------------------------------------------
+				var que=false;
+				function qmi(){
+					var zz=document.getElementById("002").value
+					var zhe =document.getElementById("003").value
+					if(zz==zhe){
+						que=true
+						document.getElementById("span3").innerHTML="<img src='img/输入正确.png' width='15px' >"
+						anniu3=true;
+					}else{
+						que=false
+						document.getElementById("span3").innerText="输入不合法"
+						anniu3=false;
+					}
+				}
+				function qma(){
+					document.getElementById("span3").innerHTML=""
+					if(!que){
+						document.getElementById("003").value="";
+					}
+				}
+				//----------------------------------------------------------------------
+			function qq(){
+				document.getElementById("span1").innerHTML=""
+				document.getElementById("span2").innerHTML=""
+				document.getElementById("span3").innerHTML=""
+			}
+			function mm(){
+				
+				if(anniu1 && anniu2 && anniu3){
+					alert("注册成功")
+					document.getElementById("span1").innerHTML=""
+					document.getElementById("span2").innerHTML=""
+					document.getElementById("span3").innerHTML=""
+					document.getElementById("001").value="";
+					document.getElementById("002").value="";
+					document.getElementById("003").value="";
+					document.location="主页面.html"
+				}else{
+					alert("注册失败")
+					// document.location="./主页.html"		
+						
+				}
+			}
+			//-----------------------------------------------------------------------------------------------------------------
+			var an1=false
+			var an2=false
+			var zh=false
+			function gers(){
+				var zz=/^[0-9a-zA-Z]{8,15}$/
+				zhe =document.getElementById("101").value
+				if(zz.test(zhe)){
+					zh=true
+					document.getElementById("span11").innerHTML="<img src='img/输入正确.png' width='15px' >"
+					an1=true;
+				}else{
+					zh=false
+					document.getElementById("span11").innerText="输入不合法"
+					an1=false;
+				}
+			}
+			function tess(){
+				document.getElementById("span11").innerHTML=""
+				if(!zhu){
+					document.getElementById("101").value="";
+				}
+			}
+			
+			var mim=false;
+			function mis(){
+				// document.getElementById("span12").innerHTML=""
+				var zz=/^[0-9a-zA-Z]{8,15}$/
+				var zhe =document.getElementById("102").value
+				if(zz.test(zhe)){
+					mim=true
+					document.getElementById("span12").innerHTML="<img src='img/输入正确.png' width='15px' >"
+					an2=true;
+				}else{
+					mim=false
+					document.getElementById("span12").innerText="输入不合法"
+					an2=false;
+				}
+			}
+			function mas(){
+				document.getElementById("span2").innerHTML=""
+				if(!mim){
+					document.getElementById("102").value="";
+				}
+			}
+			
+			function qqs(){
+				document.getElementById("span11").innerHTML=""
+				document.getElementById("span12").innerHTML=""
+				
+			}
+			function mms(){
+				
+				if(an1 && an2){
+					alert("登录成功")
+					document.getElementById("span11").innerHTML=""
+					document.getElementById("span12").innerHTML=""
+					
+					document.getElementById("101").value="";
+					document.getElementById("102").value="";
+					
+					document.location="主页面.html"
+				}else{
+					alert("登录失败")
+							
+						
+				}
+			}
+			//--------------------------------------------------------------------------------------------------
+			document.getElementById("deng").onclick=function(){
+				document.getElementById("tab").innerHTML='<tr><th><img src="./img/登录.png" width="100px" ></th></tr><tr><th><span>登录</span></th></tr>'
+			}
+			document.getElementById("zhu").onclick=function(){
+				document.getElementById("tab").innerHTML='<tr><th><img src="./img/注册.png" width="100px" ></th></tr><tr><th><span>注册</span></th></tr>'
+			}
+			
+			$(function(){
+				var i=0;
+				var myyh=[
+					"url(img/img/蜘蛛侠壁纸01.webp)",
+					'url(img/img/蜘蛛001.webp)',
+					'url(img/img/蜘蛛002.webp)',
+					'url(img/img/蜘蛛003.webp)',
+					'url(img/img/蜘蛛004.webp)',
+					"url(img/img/蜘蛛侠壁纸.png)",
+				]
+				$(function(){
+					$('.zhu').click(function(){
+						$(this).animate({
+							top:'-20px'
+						},1000,function(){
+							$(this).animate({
+								top:'0'
+							},100,function(){
+								$(this).animate({
+									top:'-250px'
+								},function(){
+									$('body').css('backgroundImage',myyh[i++])
+									if(i==myyh.length){
+										i=0;
+									}
+								})
+							})
+						})
+					})
+				})
+			})
+		</script>
+	</body>
+</html>
